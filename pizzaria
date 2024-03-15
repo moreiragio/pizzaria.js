@@ -1,0 +1,31 @@
+const readline = require('readline');
+
+const rl = readline.createInterdace({
+    input: process.stdin,
+    output: process.stdout
+});
+
+function promptInt(question) {
+    return new Promise((resolve) => {
+        rl.question(question, (answer) => {
+            resolve(parseInt(answer));
+        });
+    });
+}
+
+function calcularTotalVendas(pm, pmp, pc, pcp, pn, pnp) {
+    const pm = promptInt("Qual é o preço da pizza marguerita?");
+    const pmp = promptInt("Quantas você vendeu?");
+    const pc = promptInt("Qual é o preço da pizza de calabresa?");
+    const pcp = promptInt("Quantas você vendeu?");
+    const pn = promptInt("Qual é o preço da pizza napolitana?");
+    const pnp = promptInt("Quantas você vendeu?");
+
+    rl.close();
+
+    const totalVendas = calcularTotalVendas(pm, pmp, pc, pcp, pn, pnp);
+    console.log("Você conseguiu R$" + totalVendas + "em vendas hoje!");
+
+}
+
+main();
